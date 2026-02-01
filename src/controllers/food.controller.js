@@ -2,7 +2,7 @@ const foodModel = require('../models/food.model')
 const likeModel = require('../models/likes.model')
 const saveFoodModel = require('../models/save.model')
 const storageService = require('../services/storage.service')
-const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require('uuid');
 
 
 const createFood = async (req, res) => {

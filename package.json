@@ -22,7 +22,7 @@
     "mongoose": "^9.0.2",
     "multer": "^2.0.2",
     "serverless-http": "^4.0.0",
-    "uuid": "^13.0.0"
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "baseline-browser-mapping": "^2.9.19"
