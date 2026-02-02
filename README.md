@@ -2,6 +2,11 @@
 
 A modern short‑video food sharing platform inspired by **Reels / TikTok**, built using the **MERN Stack** with a premium UI/UX, optimized uploads, and real‑time interactions.
 
+## Live Link:(https://reelappmr.vercel.app/)
+
+## Backend Code Ripo (https://github.com/KGN15/Backend-reel-app-server)
+## Frontend Code Ripo (https://github.com/KGN15/FRONTEND-reel-clint-side)
+
 ---
 
 ## 📌 Table of Contents
