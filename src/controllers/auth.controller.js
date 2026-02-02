@@ -31,7 +31,13 @@ const registerUser = async (req, res) => {
     );
 
 
-    res.cookie('token', token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
 
 
     res.status(201).json({
@@ -73,7 +79,13 @@ const loginUser = async (req, res) => {
     );
 
 
-    res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
 
     res.status(200).json({
         message: 'user logined sucsesfulliy',
@@ -127,18 +139,19 @@ const registarFoodPartner = async (req, res) => {
         });
 
         const token = jwt.sign(
-            { id: foodPartner._id, role: "foodPartner" }, 
+            { id: foodPartner._id, role: "foodPartner" },
             process.env.JWT_SECRET,
             { expiresIn: "7d" }
         );
 
 
-        // 6️⃣ Cookie
-        res.cookie('token', token, {
+        res.cookie("token", token, {
             httpOnly: true,
-            sameSite: 'lax',
-            secure: false // localhost
+            secure: true,
+            sameSite: "none",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
         });
+
 
         // 7️⃣ Response
         res.status(201).json({
@@ -190,7 +203,7 @@ const loginFoodPartner = async (req, res) => {
         }
 
         const token = jwt.sign(
-            { id: foodPartner._id, role: "foodPartner" }, 
+            { id: foodPartner._id, role: "foodPartner" },
             process.env.JWT_SECRET,
             { expiresIn: "7d" }
         );
@@ -198,9 +211,11 @@ const loginFoodPartner = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            sameSite: "lax",
-            secure: false
+            secure: true,
+            sameSite: "none",
+            maxAge: 7 * 24 * 60 * 60 * 1000,
         });
+
 
         res.status(200).json({
             message: "Food partner logged in successfully",
