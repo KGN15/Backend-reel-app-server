@@ -1,10 +1,20 @@
-const app = require('../src/app');
-const connectDB = require('../src/db/DB');
-const serverless = require('serverless-http');
+require("dotenv").config();
+const app = require("../src/app");
+const connectDB = require("../src/db/db");
 
-const handler = async (req, res) => {
-  await connectDB();
-  return serverless(app)(req, res);
+const PORT = process.env.PORT || 5000;
+
+const startServer = async () => {
+  try {
+    await connectDB();
+    console.log("Database connected");
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error("Failed to start server", err);
+  }
 };
 
-module.exports = handler;
+startServer();
