@@ -12,7 +12,7 @@ const authFoodPartnerMiddlewares = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // 🔥 role check
+
     if (decoded.role !== "foodPartner") {
       return res.status(403).json({ message: "Access denied" });
     }
